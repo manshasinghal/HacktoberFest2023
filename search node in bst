@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+class nd{
+int data;
+nd* left;
+nd* right;
+nd(int d){
+  this->data = d;
+  this->left =NULL;
+  this->right = NULL;
+}
+bool searchnode(nd* root ,  int k){
+  if(root==NULL){
+    return false;
+
+  }
+  if(root->data == k){
+    return true;
+  }
+  if(root->data>k){
+    return searchnode(root->right , k);
+  }
+  else{
+    return searchnode(root->left , k);
+  }
+  }
+};
+//T.C= o(N);
+//S.C=o(N);
+//OR
+class nd{
+int data;
+nd* left;
+nd* right;
+nd(int d){
+  this->data = d;
+  this->left =NULL;
+  this->right = NULL;
+}
+bool searchnode(nd* root ,  int k){
+  nd* temp = root;
+ while(temp!=NULL){
+  if(temp->data == k){
+    return true;
+  }
+  if(temp->data>k){
+  temp=temp->left;
+  }
+  else{
+    temp=temp->right;
+  }
+   }
+  return false;
+  }
+}
